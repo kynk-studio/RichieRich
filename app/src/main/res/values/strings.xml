@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Richie Rich</string>
+    <string name="title_money">Dollars</string>
+    <string name="title_bank">Balance</string>
+    <string name="nav_string">Settings</string>
+    <string name="img_desc">Image Holder</string>
+
+    <string name="d1">1 USD</string>
+    <string name="d2">5 USD</string>
+    <string name="d3">10 USD</string>
+    <string name="d4">25 USD</string>
+    <string name="title_activity_main">Main</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+</resources>
