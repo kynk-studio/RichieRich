@@ -1,9 +1,28 @@
+<!--
+  ~ Copyright © 2017 Naveen Kumar
+  ~
+  ~ This file is part of Richie Rich.
+  ~
+  ~     Richie Rich is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     Richie Rich is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with Richie Rich.  If not, see <http://www.gnu.org/licenses/>.
+  ~
+  -->
+
 <resources>
     <string name="app_name">Richie Rich</string>
-    <string name="title_money">Dollars</string>
-    <string name="title_bank">Balance</string>
-    <string name="nav_string">Settings</string>
+    <string name="menu_share">Share</string>
     <string name="img_desc">Image Holder</string>
+    <string name="get_it">GET IT</string>
 
     <string name="d1">1 USD</string>
     <string name="d2">5 USD</string>

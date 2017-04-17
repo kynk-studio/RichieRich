@@ -1,18 +1,33 @@
+/*
+ * Copyright © 2017 Naveen Kumar
+ *
+ * This file is part of Richie Rich.
+ *
+ *     Richie Rich is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     Richie Rich is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with Richie Rich.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
 package studio.kynk.richierich;
 
-import android.graphics.Color;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-
-import com.amulyakhare.textdrawable.TextDrawable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,11 +54,35 @@ public class MainActivity extends AppCompatActivity {
     "Get free USD 50", "Get free USD 10000"};
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        super.onOptionsItemSelected(item);
+
+        switch (item.getItemId()) {
+            case R.id.menu_share:
+                Intent i = new Intent(android.content.Intent.ACTION_SEND);
+                i.setType("text/plain");
+                i.putExtra(android.content.Intent.EXTRA_SUBJECT, "Richie Rich");
+                i.putExtra(android.content.Intent.EXTRA_TEXT, "I bought Richie Rich app from play store, this app is cool! " +
+                        "Link : https://play.google.com/store/apps/details?id=studio.kynk.richierich");
+                startActivity(Intent.createChooser(i, "Share via"));
+        }
+        return true;
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
         
         if (mRecyclerView != null) {
@@ -59,21 +98,6 @@ public class MainActivity extends AppCompatActivity {
 
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.navigation_money:
-
-                        return true;
-                    case R.id.navigation_balance:
-                        return true;
-                    case R.id.nav_settings:
-                        return true;
-                }
-                return false;
-            }
-        });
         mAdapter = new RVAdapter(mCard);
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();

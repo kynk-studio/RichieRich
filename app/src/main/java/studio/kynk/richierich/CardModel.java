@@ -1,9 +1,27 @@
+/*
+ * Copyright © 2017 Naveen Kumar
+ *
+ * This file is part of Richie Rich.
+ *
+ *     Richie Rich is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     Richie Rich is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with Richie Rich.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
 package studio.kynk.richierich;
 
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.amulyakhare.textdrawable.TextDrawable;
 
@@ -34,17 +52,23 @@ public class CardModel {
         return this.mText;
     }
 
-    public String getText2(){return this.mText2;}
-
     public void setText(String mText){
         this.mText = mText;
+    }
+
+    public String getText2() {
+        return this.mText2;
     }
 
     public void setText2(String mText2){this.mText2 = mText2;}
 
     public int getPic(){return this.mPic;}
-    public Drawable getPic2(int i){return TextDrawable.builder().buildRound("$",color[i]);}
 
     public void setPic(int mPic){this.mPic = mPic;}
+
+    public Drawable getPic2(int i) {
+        return TextDrawable.builder().buildRound("$", color[i]);
+    }
+
     public void setPic2(int mPic2){this.mPic2 = mPic2;}
 }
