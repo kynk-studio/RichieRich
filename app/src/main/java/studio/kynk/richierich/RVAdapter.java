@@ -20,6 +20,8 @@
 
 package studio.kynk.richierich;
 
+import android.support.annotation.NonNull;
+import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,12 +29,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
+
 import java.util.List;
 
 
 public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ViewHolder>{
     private List<CardModel> cardList;
-
+    private MaterialDialog.Builder build;
     //Provide a suitable constructor
     public RVAdapter(List<CardModel> cardList){
         this.cardList = cardList;
@@ -53,12 +58,32 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ViewHolder>{
 
     //Replace the contents of a view (invoked by the layout manager
     @Override
-    public void onBindViewHolder(RVAdapter.ViewHolder holder, int position) {
-        CardModel mCard = cardList.get(position);
+    public void onBindViewHolder(final RVAdapter.ViewHolder holder, final int position) {
+        final CardModel mCard = cardList.get(position);
         holder.textView.setText(mCard.getText());
         holder.subText.setText(mCard.getText2());
         holder.ivImageCover.setImageResource(mCard.getPic());
         holder.ivText.setImageDrawable(mCard.getPic2(position));
+        holder.acb.setBackgroundColor(mCard.getColor(position));
+        holder.acb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new MaterialDialog.Builder(v.getContext())
+                        .title(mCard.getText())
+                        .content(R.string.get_free)
+                        .positiveColorRes(mCard.getColor(holder.getAdapterPosition()))
+                        .positiveFocus(true)
+                        .positiveText("EXIT")
+                        .onPositive(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                dialog.dismiss();
+                            }
+                        })
+                        .show();
+            }
+        });
+
     }
 
     @Override
@@ -73,6 +98,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ViewHolder>{
         //each data item is just a string in this case
         public TextView textView, subText;
         public ImageView ivImageCover, ivText;
+        public AppCompatButton acb;
 
         public ViewHolder(View v) {
             super(v);
@@ -80,6 +106,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ViewHolder>{
             subText = (TextView) v.findViewById(R.id.sub_text);
             ivImageCover = (ImageView) v.findViewById(R.id.iv_image_cover);
             ivText = (ImageView) v.findViewById(R.id.img_head);
+            acb = (AppCompatButton) v.findViewById(R.id.get_it);
         }
     }
 }

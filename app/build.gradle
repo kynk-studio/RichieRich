@@ -25,10 +25,10 @@ android {
     buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "studio.kynk.richierich"
-        minSdkVersion 11
+        minSdkVersion 13
         targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        versionCode 174
+        versionName "1.7.17.4"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
@@ -52,4 +52,6 @@ dependencies {
     compile 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
     compile 'com.android.support:support-vector-drawable:25.3.1'
     testCompile 'junit:junit:4.12'
+
+    compile 'com.afollestad.material-dialogs:core:0.9.4.3'
 }

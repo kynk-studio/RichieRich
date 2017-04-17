@@ -22,4 +22,10 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="c1">#444C5C</color>
+    <color name="c2">#CE5A57</color>
+    <color name="c3">#78A5A3</color>
+    <color name="c4">#E1B16A</color>
+    <color name="c5">#68829E</color>
 </resources>

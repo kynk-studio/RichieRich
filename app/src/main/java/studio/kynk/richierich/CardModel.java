@@ -20,7 +20,6 @@
 
 package studio.kynk.richierich;
 
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 
 import com.amulyakhare.textdrawable.TextDrawable;
@@ -33,11 +32,11 @@ public class CardModel {
     private int mPic, mPic2;
     private String mText, mText2;
     private int set[], color[] = {
-            Color.RED,
-            Color.BLACK,
-            Color.BLUE,
-            Color.CYAN,
-            Color.GREEN
+            R.color.c1,
+            R.color.c2,
+            R.color.c3,
+            R.color.c4,
+            R.color.c5
 
     };
 
@@ -67,8 +66,12 @@ public class CardModel {
     public void setPic(int mPic){this.mPic = mPic;}
 
     public Drawable getPic2(int i) {
-        return TextDrawable.builder().buildRound("$", color[i]);
+        return TextDrawable.builder().buildRound("$", getColor(i));
     }
 
     public void setPic2(int mPic2){this.mPic2 = mPic2;}
+
+    public int getColor(int i) {
+        return this.color[i];
+    }
 }

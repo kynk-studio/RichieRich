@@ -54,13 +54,14 @@
                 android:scaleType="centerCrop" />
 
             <android.support.v7.widget.AppCompatButton
-                android:layout_width="wrap_content"
+                android:id="@+id/get_it"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/iv_image_cover"
                 android:layout_gravity="bottom|right"
                 android:padding="8dp"
                 android:text="@string/get_it"
-                android:textColor="@color/colorAccent" />
+                android:textColor="#FFFFFFFF" />
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 </RelativeLayout>
